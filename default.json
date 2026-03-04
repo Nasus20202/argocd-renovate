@@ -13,7 +13,6 @@
   "automergeStrategy": "rebase",
   "platformAutomerge": false,
   "rebaseWhen": "conflicted",
-  "separateMultipleMinor": true,
   "separateMultipleMajor": true,
   "additionalBranchPrefix": "{{packageFile}}/",
   "commitMessageSuffix": "in {{packageFile}}",
