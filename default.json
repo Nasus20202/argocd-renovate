@@ -17,6 +17,7 @@
   "additionalBranchPrefix": "{{packageFile}}/",
   "commitMessageSuffix": "in {{packageFile}}",
   "ignorePaths": ["**/.argocd-state/**"],
+  "reviewers": ["Nasus20202"],
   "kubernetes": {
     "managerFilePatterns": ["/.+\\.ya?ml$/"]
   },
