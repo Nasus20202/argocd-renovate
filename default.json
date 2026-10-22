@@ -11,7 +11,7 @@
   "dependencyDashboard": true,
   "automergeType": "pr",
   "automergeStrategy": "rebase",
-  "platformAutomerge": false,
+  "platformAutomerge": true,
   "rebaseWhen": "conflicted",
   "separateMultipleMajor": true,
   "additionalBranchPrefix": "{{packageFile}}/",
