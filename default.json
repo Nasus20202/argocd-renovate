@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
+  "extends": ["github>Nasus20202/renovate"],
   "timezone": "Europe/Warsaw",
   "labels": ["version-update"],
   "dependencyDashboardTitle": "Version Updates Dashboard",
@@ -29,10 +29,6 @@
   },
   "packageRules": [
     {
-      "matchUpdateTypes": ["patch", "minor"],
-      "automerge": true
-    },
-    {
       "matchDatasources": ["docker"],
       "versioning": "docker"
     }
@@ -42,9 +38,7 @@
       "description": "Update Docker image tags in YAML files",
       "customType": "regex",
       "managerFilePatterns": ["/.+\\.ya?ml$/"],
-      "matchStrings": [
-        "(?:image|imageName):\\s*(?<depName>[^\\s:]+):(?<currentValue>[\\w.-]+)"
-      ],
+      "matchStrings": ["(?:image|imageName):\\s*(?<depName>[^\\s:]+):(?<currentValue>[\\w.-]+)"],
       "datasourceTemplate": "docker"
     }
   ]
