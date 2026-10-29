@@ -39,9 +39,9 @@
       "customType": "regex",
       "managerFilePatterns": ["/.+\\.ya?ml$/"],
       "matchStrings": [
-        "(?<prefix>imageName:\\s*)(?<depName>[^\\s:@]+):(?<currentValue>[\\w.-]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?"
+        "imageName:\\s*(?<depName>[^\\s:@]+):(?<currentValue>[\\w.-]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?"
       ],
-      "autoReplaceStringTemplate": "{{{prefix}}}{{{depName}}}:{{{newValue}}}{{#if newDigest}}@{{{newDigest}}}{{/if}}",
+      "autoReplaceStringTemplate": "imageName: {{{depName}}}:{{{newValue}}}{{#if newDigest}}@{{{newDigest}}}{{/if}}",
       "datasourceTemplate": "docker"
     }
   ]
