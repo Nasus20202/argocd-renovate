@@ -25,7 +25,7 @@
     "managerFilePatterns": ["/.+\\.ya?ml$/"]
   },
   "helm-values": {
-    "managerFilePatterns": ["/.+\\.ya?ml$/"]
+    "managerFilePatterns": ["/(^|/)[^/]*values[^/]*\\.ya?ml$/"]
   },
   "packageRules": [
     {
@@ -35,11 +35,11 @@
   ],
   "customManagers": [
     {
-      "description": "Update Docker image tags in YAML files",
+      "description": "Update CNPG imageName tags in YAML files",
       "customType": "regex",
       "managerFilePatterns": ["/.+\\.ya?ml$/"],
       "matchStrings": [
-        "(?<prefix>(?:image|imageName):\\s*)(?<depName>[^\\s:@]+):(?<currentValue>[\\w.-]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?"
+        "(?<prefix>imageName:\\s*)(?<depName>[^\\s:@]+):(?<currentValue>[\\w.-]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?"
       ],
       "autoReplaceStringTemplate": "{{{prefix}}}{{{depName}}}:{{{newValue}}}{{#if newDigest}}@{{{newDigest}}}{{/if}}",
       "datasourceTemplate": "docker"
