@@ -38,7 +38,10 @@
       "description": "Update Docker image tags in YAML files",
       "customType": "regex",
       "managerFilePatterns": ["/.+\\.ya?ml$/"],
-      "matchStrings": ["(?:image|imageName):\\s*(?<depName>[^\\s:]+):(?<currentValue>[\\w.-]+)"],
+      "matchStrings": [
+        "(?<prefix>(?:image|imageName):\\s*)(?<depName>[^\\s:@]+):(?<currentValue>[\\w.-]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?"
+      ],
+      "autoReplaceStringTemplate": "{{{prefix}}}{{{depName}}}:{{{newValue}}}{{#if newDigest}}@{{{newDigest}}}{{/if}}",
       "datasourceTemplate": "docker"
     }
   ]
